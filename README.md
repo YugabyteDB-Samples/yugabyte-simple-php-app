@@ -34,7 +34,7 @@ Set the following connection parameters in the `sample-app.php` file:
 
 Note, you can easily find all the settings on the Yugabyte Cloud dashboard:
 
-![image](resources/cloud-app-settings.png)
+![image](resources/cloud_app_settings.png)
 
 ## Run the Application
  
