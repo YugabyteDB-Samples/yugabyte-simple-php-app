@@ -40,7 +40,6 @@ Note, you can easily find all the settings on the Yugabyte Cloud dashboard:
  
 1. Install the [php-pgsql](https://www.php.net/manual/en/book.pgsql.php) driver:
     * Homebrew users of version PHP 7.2+: the driver is installed automatically with the `brew install php` command.
-    * Homebrew users of earlier PHP versions can install using the `brew install phpXX-pdo-pgsql` command where `XX` corresponds to your PHP version.
     * Ubuntu users can install with the `sudo apt-get install php-pgsql` command.
     * CentOS users can install with the `sudo yum install php-pgsql` command.
     * Others need to follow the [php-pgsql installation guide](https://www.php.net/manual/en/pgsql.setup.php).
