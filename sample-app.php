@@ -18,8 +18,6 @@ function connect() {
     if (SSL_ROOT_CERT !== '') {
         $conn_str = $conn_str . ';sslrootcert=' . SSL_ROOT_CERT; 
     }
-
-    print $conn_str . "\n";
     
     $conn = new PDO($conn_str,
                     USER, PASSWORD,
