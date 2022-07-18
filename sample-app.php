@@ -1,19 +1,27 @@
 <?php
 
-define('HOST', '');
+define('HOST', '127.0.0.1');
 define('PORT', '5433');
 define('DB_NAME', 'yugabyte');
-define('USER', '');
-define('PASSWORD', '');
-define('SSL_MODE', 'verify-full');
+define('USER', 'yugabyte');
+define('PASSWORD', 'yugabyte');
+define('SSL_MODE', 'disable');
 define('SSL_ROOT_CERT', '');
 
 
 function connect() {
     print ">>>> Connecting to YugabyteDB!\n";
 
-    $conn = new PDO('pgsql:host=' . HOST . ';port=' . PORT . ';dbname=' . DB_NAME .
-                    ';sslmode=' . SSL_MODE . ';sslrootcert=' . SSL_ROOT_CERT,
+    $conn_str = 'pgsql:host=' . HOST . ';port=' . PORT . ';dbname=' . DB_NAME .
+    ';sslmode=' . SSL_MODE;
+
+    if (SSL_ROOT_CERT !== '') {
+        $conn_str = $conn_str . ';sslrootcert=' . SSL_ROOT_CERT; 
+    }
+
+    print $conn_str . "\n";
+    
+    $conn = new PDO($conn_str,
                     USER, PASSWORD,
                     array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                           PDO::ATTR_EMULATE_PREPARES => true,
@@ -66,7 +74,7 @@ function transfer_money_between_accounts(&$conn, $amount) {
     } catch (PDOException $e) {
         if ($e->getCode() == '40001') {
             print "The operation is aborted due to a concurrent transaction that is modifying the same set of rows.
-                   Consider adding retry logic for production-grade applications.\n";
+                   Consider adding retry logic or using the pessimistic locking.\n";
         }
         
         throw $e;

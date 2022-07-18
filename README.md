@@ -29,7 +29,7 @@ Set the following connection parameters in the `sample-app.php` file:
 * `HOST` - the hostname of your YugabyteDB Managed instance.
 * `USER` - the username for your database.
 * `PASSWORD` - the password for your database.
-* `SSL_MODE`  - an SSL mode. Make sure it's set to `verify-full`.
+* `SSL_MODE`  - an SSL mode. Make sure it's set to `verify-full` for YugabyteDB Managed.
 * `SSL_ROOT_CERT` - a full path to your CA root cert (for example, `/Users/dmagda/certificates/root.crt`). 
 
 Note, you can easily find all the settings on the YugabyteDB Managed dashboard:
