@@ -1,17 +1,17 @@
 # Simple PHP Application for YugabyteDB
 
 This application connects to your YugabyteDB instance via the 
-[php-pgsql](https://www.php.net/manual/en/book.pgsql.php) driver for PostgreSQL and performs basic SQL operations. The instructions below are provided for [YugabyteDB Managed](https://cloud.yugabyte.com/) deployments. 
+[php-pgsql](https://www.php.net/manual/en/book.pgsql.php) driver for PostgreSQL and performs basic SQL operations. The instructions below are provided for [YugabyteDB Aeon](https://cloud.yugabyte.com/) deployments. 
 If you use a different type of deployment, then update the `sample-app.php` file with proper connection parameters.
 
 ## Prerequisite
 
 * PHP runtime - the sample project was created with PHP 8.1 but should work with earlier and later versions.
-* Command line tool or your favourite IDE, such as Visual Studio Code.
+* Command line tool or your favorite IDE, such as Visual Studio Code.
 
-## Start YugabyteDB Managed Cluster
+## Start YugabyteDB Aeon Cluster
 
-* [Start YugabyteDB Managed](https://docs.yugabyte.com/latest/yugabyte-cloud/cloud-quickstart/qs-add/) instance. You can use
+* [Start YugabyteDB Aeon](https://docs.yugabyte.com/latest/yugabyte-cloud/cloud-quickstart/qs-add/) instance. You can use
 the free tier at no cost.
 * Add an IP address of your machine/laptop to the [IP allow list](https://docs.yugabyte.com/latest/yugabyte-cloud/cloud-secure-clusters/add-connections/#manage-ip-allow-lists)
 
@@ -20,19 +20,19 @@ the free tier at no cost.
 Clone the repository and change dirs into it:
 
 ```bash
-git clone https://github.com/yugabyte/yugabyte-simple-php-app && cd yugabyte-simple-php-app
+git clone https://github.com/YugabyteDB-Samples/yugabyte-simple-php-app.git && cd yugabyte-simple-php-app
 ```
 
-## Provide YugabyteDB Managed Connection Parameters
+## Provide YugabyteDB Aeon Connection Parameters
 
 Set the following connection parameters in the `sample-app.php` file:
 * `HOST` - the hostname of your YugabyteDB Managed instance.
 * `USER` - the username for your database.
 * `PASSWORD` - the password for your database.
-* `SSL_MODE`  - an SSL mode. Make sure it's set to `verify-full` for YugabyteDB Managed.
+* `SSL_MODE`  - an SSL mode. Make sure it's set to `verify-full` for YugabyteDB Aeon.
 * `SSL_ROOT_CERT` - a full path to your CA root cert (for example, `/Users/dmagda/certificates/root.crt`). 
 
-Note, you can easily find all the settings on the YugabyteDB Managed dashboard:
+Note, you can easily find all the settings on the YugabyteDB Aeon dashboard:
 
 ![image](resources/cloud_app_settings.png)
 
@@ -66,7 +66,7 @@ name=John, age=28, country=Canada, balance=9800
 
 ## Explore Application Logic
 
-Congrats! You've successfully executed a simple PHP app that works with YugabyteDB Managed.
+Congrats! You've successfully executed a simple PHP app that works with YugabyteDB Aeon.
 
 Now, explore the source code of `sample-app.php`:
 1. `connect` function - establishes a connection with your cloud instance via the php-pgsql driver.
